@@ -1,0 +1,39 @@
+name: "Simply Web Restart"
+description: "Restart Simply IIS"
+inputs:
+  website-name:
+    description: "IIS website name"
+    required: true
+  server-computer-name:
+    description: "IIS server computer name"
+    required: true
+  server-username:
+    description: "IIS server username"
+    required: true
+  server-password:
+    description: "IIS server password"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Stop Application Pool
+      shell: pwsh
+      run: >
+        ${{ github.action_path }}/Scripts/Set-ApplicationPool.ps1
+        StopAppPool
+        ${{ inputs.website-name }}
+        ${{ inputs.server-computer-name }}
+        ${{ inputs.server-username }}
+        ${{ inputs.server-password }}
+    - name: Start Application Pool
+      shell: pwsh
+      run: >
+        ${{ github.action_path }}/Scripts/Set-ApplicationPool.ps1
+        StartAppPool
+        ${{ inputs.website-name }}
+        ${{ inputs.server-computer-name }}
+        ${{ inputs.server-username }}
+        ${{ inputs.server-password }}
+branding:
+  icon: "refresh-ccw"
+  color: "purple"
