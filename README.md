@@ -16,8 +16,6 @@ jobs:
     name: Restart application on Simply
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-
       - name: Restart application
         uses: rasmusbuchholdt/simply-web-restart@1.0.0
         with:
