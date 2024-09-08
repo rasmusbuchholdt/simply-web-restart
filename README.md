@@ -38,7 +38,7 @@ jobs:
 3. Select `Set up a workflow yourself`.
 4. Copy paste one of the examples into your .yml workflow file and commit the file.
 5. All the examples takes advantage of `Secrets`, so make sure you have added the required secrets to your repository. Instructions on this can be found in the [settings](#settings) section.
-6. Once you have added your secrets, your new workflow should be running on every push to the branch.
+6. Once you have added your secrets, your new workflow can be manually triggered by running the created action.
 
 ---
 
